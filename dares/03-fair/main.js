@@ -1,19 +1,26 @@
+// Grab the canvas and its 2D drawing context. All drawing goes through ctx.
 const canvas = document.getElementById("my-canvas");
 const ctx = canvas.getContext("2d");
 
+// Named sizes: resizing the canvas or square only means editing one line.
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
+// Square's top-left corner. y grows downward.
 let x = 0;
 let y = 0;
 
 let squareSide = 30;
 
+// Pixels per frame along each axis (frame-based, see 01).
 const speed = 0.25;
 
+// How far the square moves this frame. Recomputed every frame from
+// keysPressed, never remembered between frames.
 let deltaX = 0;
 let deltaY = 0;
 
+// The ONE source of truth for input. Listeners write it; the loop reads it.
 const keysPressed = {
   ArrowUp: false,
   ArrowDown: false,
@@ -51,6 +58,8 @@ function moveInDirection() {
   deltaY = normalizedVy * speed;
 }
 
+// Listeners ONLY record state. Moving the square here would stutter,
+// because the OS waits a moment before repeating a held key.
 window.addEventListener("keydown", (e) => {
   if (e.key in keysPressed) {
     e.preventDefault();
@@ -64,6 +73,9 @@ window.addEventListener("keyup", (e) => {
   }
 });
 
+// The square is (partly) visible while x is between -squareSide and canvasWidth.
+// Past either limit it's fully hidden, so wrap by exactly one lap
+// (canvasWidth + squareSide), keeping the overshoot so nothing snaps.
 function updateXPosition() {
   x += deltaX;
 
@@ -77,6 +89,7 @@ function updateXPosition() {
   }
 }
 
+// Same idea as for updateXPosition, using height.
 function updateYPosition() {
   y += deltaY;
 
@@ -90,18 +103,23 @@ function updateYPosition() {
   }
 }
 
+// Drawing only: no game logic in here.
 function drawSquare(xVal, yVal) {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   ctx.fillStyle = "red";
   ctx.fillRect(xVal, yVal, squareSide, squareSide);
 }
 
+// The game loop, in a fixed order every frame: input → update → draw.
 function draw() {
   moveInDirection();
   updateXPosition();
   updateYPosition();
   drawSquare(x, y);
+
+  // Ask the browser to call draw() again before the next screen repaint.
   requestAnimationFrame(draw);
 }
 
+// Kick off the loop.
 requestAnimationFrame(draw);
