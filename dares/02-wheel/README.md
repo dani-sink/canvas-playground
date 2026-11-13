@@ -15,5 +15,5 @@ Arrow keys move the square now. Holding works, diagonals work, wraps on every si
 
 **Still bugging me:**
 
-- Diagonal feels faster than straight. Something about the `(1, 1)` arrow being longer than `(1, 0)`?
+- ~~Diagonal feels faster than straight. Something about the `(1, 1)` arrow being longer than `(1, 0)`?~~ → fixed in 03 (normalize)
 - Make speed the same on 60Hz and 144Hz screens (still open from 01).
