@@ -21,24 +21,26 @@ canvas-playground/
 ## Play it
 
 ### In the browser
+
 Every dare is playable online through GitHub Pages. Click a dare, click the canvas once if the keys don't respond, and play:
 
-| Dare | Play | Controls |
-|---|---|---|
-| 01 glide | [▶ play](https://dani-sink.github.io/canvas-playground/dares/01-glide/) | none, just watch |
-| 02 wheel | [▶ play](https://dani-sink.github.io/canvas-playground/dares/02-wheel/) | ← ↑ → ↓ move |
-| 03 fair | [▶ play](https://dani-sink.github.io/canvas-playground/dares/03-fair/) | ← ↑ → ↓ move (fair diagonals) |
-| 04 steady | [▶ play](https://dani-sink.github.io/canvas-playground/dares/04-steady/) | ← ↑ → ↓ move (same speed on any screen) |
-| 05 weight | [▶ play](https://dani-sink.github.io/canvas-playground/dares/05-weight/) | ← ↑ → ↓ push, release to slide |
-| 06 walls | [▶ play](https://dani-sink.github.io/canvas-playground/dares/06-walls/) | ← ↑ → ↓ push, bounce off walls |
-| 07 block | [▶ play](https://dani-sink.github.io/canvas-playground/dares/07-block/) | ← ↑ → ↓ push, bump the box |
-| 08 room | [▶ play](https://dani-sink.github.io/canvas-playground/dares/08-room/) | ← ↑ → ↓ push around the room |
-| 09 gravity | [▶ play](https://dani-sink.github.io/canvas-playground/dares/09-gravity/) | ← → run · ↑ jump |
-| 10 feel | [▶ play](https://dani-sink.github.io/canvas-playground/dares/10-feel/) | ← → run · ↑ jump (tap = hop, hold = full jump) |
+| Dare       | Play                                                                      | Controls                                       |
+| ---------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
+| 01 glide   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/01-glide/)   | none, just watch                               |
+| 02 wheel   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/02-wheel/)   | ← ↑ → ↓ move                                   |
+| 03 fair    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/03-fair/)    | ← ↑ → ↓ move (fair diagonals)                  |
+| 04 steady  | [▶ play](https://dani-sink.github.io/canvas-playground/dares/04-steady/)  | ← ↑ → ↓ move (same speed on any screen)        |
+| 05 weight  | [▶ play](https://dani-sink.github.io/canvas-playground/dares/05-weight/)  | ← ↑ → ↓ push, release to slide                 |
+| 06 walls   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/06-walls/)   | ← ↑ → ↓ push, bounce off walls                 |
+| 07 block   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/07-block/)   | ← ↑ → ↓ push, bump the box                     |
+| 08 room    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/08-room/)    | ← ↑ → ↓ push around the room                   |
+| 09 gravity | [▶ play](https://dani-sink.github.io/canvas-playground/dares/09-gravity/) | ← → run · ↑ jump                               |
+| 10 feel    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/10-feel/)    | ← → run · ↑ jump (tap = hop, hold = full jump) |
 
 Things to try in **10 feel**: run off the Platform and jump a split second late (coyote time), press jump just before landing (jump buffer), and compare a tap with a hold (variable jump height).
 
 ### Locally
+
 1. Clone the repo:
    ```
    git clone https://github.com/dani-sink/canvas-playground.git
@@ -78,18 +80,18 @@ flowchart TB
   moving --> physics --> collision --> platformer
 ```
 
-| # | Dare | What it added | The idea that clicked |
-|---|---|---|---|
-| 01 | glide | A square loops across the screen | Animation is a flipbook: clear, update, draw, repeat |
-| 02 | wheel | Arrow keys drive the square | Listeners record, the loop decides. One source of truth |
-| 03 | fair | Same speed in all 8 directions | Normalize: direction (length 1) × speed |
-| 04 | steady | Same speed on any screen | Move by `speed × dt`, and cap `dt` |
-| 05 | weight | Speeds up, slides to a stop | Acceleration → velocity → position, each × `dt` |
-| 06 | walls | Solid walls that bounce | A hit fixes *where* AND *how it moves*. Rest vs. bounce |
-| 07 | block | A box in the middle of the room | Overlap on X **and** Y. Move one axis at a time |
-| 08 | room | Many boxes, one loop | The level is data, not code |
-| 09 | gravity | Side view, jumping, landing | Derive physics from feel values. Grounded = pushed up |
-| 10 | feel | Coyote time, jump buffer, variable jump | Correct physics ≠ good feel. Timers in game time |
+| #   | Dare    | What it added                           | The idea that clicked                                   |
+| --- | ------- | --------------------------------------- | ------------------------------------------------------- |
+| 01  | glide   | A square loops across the screen        | Animation is a flipbook: clear, update, draw, repeat    |
+| 02  | wheel   | Arrow keys drive the square             | Listeners record, the loop decides. One source of truth |
+| 03  | fair    | Same speed in all 8 directions          | Normalize: direction (length 1) × speed                 |
+| 04  | steady  | Same speed on any screen                | Move by `speed × dt`, and cap `dt`                      |
+| 05  | weight  | Speeds up, slides to a stop             | Acceleration → velocity → position, each × `dt`         |
+| 06  | walls   | Solid walls that bounce                 | A hit fixes _where_ AND _how it moves_. Rest vs. bounce |
+| 07  | block   | A box in the middle of the room         | Overlap on X **and** Y. Move one axis at a time         |
+| 08  | room    | Many boxes, one loop                    | The level is data, not code                             |
+| 09  | gravity | Side view, jumping, landing             | Derive physics from feel values. Grounded = pushed up   |
+| 10  | feel    | Coyote time, jump buffer, variable jump | Correct physics ≠ good feel. Timers in game time        |
 
 ---
 
@@ -114,18 +116,19 @@ flowchart LR
 
 State comes in two kinds, and keeping them apart solved more bugs than anything else:
 
-| Remembered between frames | Recomputed every frame |
-|---|---|
+| Remembered between frames          | Recomputed every frame   |
+| ---------------------------------- | ------------------------ |
 | `x`, `y`, `velocityX`, `velocityY` | `accelX` (from the keys) |
-| `isGrounded`, `wasUpHeld` | `dt` |
-| `coyoteTimer`, `jumpBufferTimer` | hit list, square bounds |
+| `isGrounded`, `wasUpHeld`          | `dt`                     |
+| `coyoteTimer`, `jumpBufferTimer`   | hit list, square bounds  |
 
 ---
 
 ## Dare by dare
 
 ### 01 – glide
-📓 [Full notes](dares/01-glide/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/01-glide/)
+
+📓 [Full notes](dares/01-glide/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/01-glide/)
 
 **Goal:** a square glides left to right and wraps forever.
 
@@ -141,13 +144,14 @@ flowchart LR
    one lap = 400 + 30 = 430 px
 ```
 
-- `x++ % width` *looked* right, but `x` grew forever. State should tell the truth.
+- `x++ % width` _looked_ right, but `x` grew forever. State should tell the truth.
 - Wrap from `-size`, so the square slides in instead of popping in.
 - `x === 400` misses when the step skips past 400. Use `>=`.
 - Carry the overshoot: `x = -size + (x - width)`. Resetting forgets how far past the edge you went; subtracting a lap remembers.
 
 ### 02 – wheel
-📓 [Full notes](dares/02-wheel/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/02-wheel/)
+
+📓 [Full notes](dares/02-wheel/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/02-wheel/)
 
 **Goal:** arrow keys move the square smoothly, diagonals work, wraps on all four edges.
 
@@ -158,12 +162,12 @@ flowchart LR
   L --> P["update position"]
 ```
 
-| Left | Right | Right − Left | Movement |
-|---|---|---|---|
-| ✗ | ✗ | 0 | none |
-| ✗ | ✓ | 1 | right |
-| ✓ | ✗ | −1 | left |
-| ✓ | ✓ | 0 | cancel out |
+| Left | Right | Right − Left | Movement   |
+| ---- | ----- | ------------ | ---------- |
+| ✗    | ✗     | 0            | none       |
+| ✗    | ✓     | 1            | right      |
+| ✓    | ✗     | −1           | left       |
+| ✓    | ✓     | 0            | cancel out |
 
 - Moving inside `keydown` stutters (OS key-repeat). Listeners record, the loop decides.
 - A `moving` flag drifted out of sync with the keys → **one source of truth**, recomputed every frame.
@@ -171,7 +175,8 @@ flowchart LR
 - In an if/else chain, line order silently decided opposite keys. `+=` makes them cancel; booleans are 0/1 in math.
 
 ### 03 – fair
-📓 [Full notes](dares/03-fair/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/03-fair/)
+
+📓 [Full notes](dares/03-fair/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/03-fair/)
 
 **Goal:** diagonals no faster than straight moves.
 
@@ -189,7 +194,8 @@ normalize: divide by length → (0.707, −0.707), length 1
 - `0.24999999999999997` is float rounding, not a bug. Don't compare computed floats with `===`.
 
 ### 04 – steady
-📓 [Full notes](dares/04-steady/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/04-steady/)
+
+📓 [Full notes](dares/04-steady/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/04-steady/)
 
 **Goal:** speed in pixels per **second**, the same on every screen.
 
@@ -201,11 +207,12 @@ both:    100 px/s × elapsed seconds = 100 px per second ✓
 
 - My 240Hz screen hid the bug: `speed = 0.25` px/frame "felt right," but would crawl 4× slower at 60Hz.
 - `dt` = this timestamp − last timestamp. Units decide the formula: (px/s) × s = px.
-- Hidden tabs pause the loop. Coming back, one frame claimed **4.35 s** → a 435 px teleport (almost exactly one lap, so it *looked* fine). Cap: `Math.min(dt, MAX_DT)`.
+- Hidden tabs pause the loop. Coming back, one frame claimed **4.35 s** → a 435 px teleport (almost exactly one lap, so it _looked_ fine). Cap: `Math.min(dt, MAX_DT)`.
 - Missed `keyup` while on another tab → stuck key. On `blur`, assume nothing is held, because that wrong guess fixes itself.
 
 ### 05 – weight
-📓 [Full notes](dares/05-weight/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/05-weight/)
+
+📓 [Full notes](dares/05-weight/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/05-weight/)
 
 **Goal:** speeds up when pressing, slides to a stop when releasing.
 
@@ -220,11 +227,12 @@ flowchart LR
 
 - Velocity is **remembered** (physical state), unlike input (read fresh). Nothing outside the game knows it.
 - Capping each axis separately let diagonals reach 150 × √2 ≈ 212. Cap the **whole arrow**.
-- The cap ran *after* moving, and the log printed *after* the cap, so it always showed a perfect 150. Finish computing velocity before anything uses it.
+- The cap ran _after_ moving, and the log printed _after_ the cap, so it always showed a perfect 150. Finish computing velocity before anything uses it.
 - Friction must never cross zero (jitter). One `Math.sign` path for both directions removed a mirrored-copy bug.
 
 ### 06 – walls
-📓 [Full notes](dares/06-walls/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/06-walls/)
+
+📓 [Full notes](dares/06-walls/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/06-walls/)
 
 **Goal:** the edges become solid walls; the square bounces and loses energy.
 
@@ -241,12 +249,13 @@ flowchart LR
   S1["150"] -->|"× 0.6"| S2["90"] -->|"× 0.6"| S3["54"] -->|"× 0.6"| S4["32.4"] -->|"< threshold"| S5["rest"]
 ```
 
-- Leaning on a wall = 240 invisible bounces per second. Invisible on screen, but the game *thinks* it's bouncing.
+- Leaning on a wall = 240 invisible bounces per second. Invisible on screen, but the game _thinks_ it's bouncing.
 - The rest threshold must beat the most speed one frame of pushing can add: `acceleration × MAX_DT`. **Derived**, not guessed.
 - Predicted 3 bounces with math, then counted 3 in the game.
 
 ### 07 – block
-📓 [Full notes](dares/07-block/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/07-block/)
+
+📓 [Full notes](dares/07-block/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/07-block/)
 
 **Goal:** a solid box in the middle of the room, on all four sides.
 
@@ -273,7 +282,8 @@ flowchart LR
 - Same return shape from every branch (`{ pos, vel }`), or `.pos` becomes `undefined` → NaN.
 
 ### 08 – room
-📓 [Full notes](dares/08-room/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/08-room/)
+
+📓 [Full notes](dares/08-room/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/08-room/)
 
 **Goal:** many obstacles, and code that doesn't care how many.
 
@@ -291,13 +301,14 @@ flowchart LR
 ```
 
 - Store one form, derive the other. One `getBounds` for the square and every box.
-- Rebuild the square's bounds for *every* box, so box B sees the push-out from box A.
+- Rebuild the square's bounds for _every_ box, so box B sees the push-out from box A.
 - Moving code into a function changed which variables it could see (stale globals).
 - A 30 px gap fits a 30 px square on paper, but not in practice: `x` would have to be exactly 260.000.
 - Tests disproved one of my predictions. Tests decide.
 
 ### 09 – gravity
-📓 [Full notes](dares/09-gravity/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/09-gravity/)
+
+📓 [Full notes](dares/09-gravity/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/09-gravity/)
 
 **Goal:** side view. Gravity, floors, and a jump.
 
@@ -321,13 +332,14 @@ flowchart LR
 ```
 
 - Old assumptions broke: the whole-arrow cap would kill the jump (now horizontal only), normalization became pointless, one rest threshold wasn't enough (now per axis).
-- **Grounded** = the Y pass pushed the square *up* out of something. Ceiling bonks and side hits don't count.
+- **Grounded** = the Y pass pushed the square _up_ out of something. Ceiling bonks and side hits don't count.
 - A log of `true`/`false` frames turned out to be measurements: airtime → bounce speeds → 6 hops. Then: walls bounce, floors don't (per-axis bounciness).
 - "No parameter" silently meant "don't touch velocity" → the square "stood" while falling at 600 px/s. Pass values explicitly.
 - Jump on **just pressed** (an event), not **held** (a state), or it's a pogo stick.
 
 ### 10 – feel
-📓 [Full notes](dares/10-feel/NOTES.md) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/10-feel/)
+
+📓 [Full notes](dares/10-feel/) · ▶ [Play](https://dani-sink.github.io/canvas-playground/dares/10-feel/)
 
 **Goal:** close the gap between what the player meant and what the game did.
 
@@ -355,44 +367,44 @@ flowchart TD
 - **Air control:** gentler acceleration and much less friction in the air.
 - **Coyote time:** jump for 0.1 s after leaving a ledge. An extra `isGrounded` check had blocked the exact case it exists for.
 - **Jump buffer:** a press 0.1 s before landing still counts. It started at 0.1 = a fake press at boot. Timers start at 0.
-- **Variable height:** tap ≈ 29.6 px, hold ≈ 101 px. A buffered tap released in the air used to give a full jump; now the launch checks the held *state*.
+- **Variable height:** tap ≈ 29.6 px, hold ≈ 101 px. A buffered tap released in the air used to give a full jump; now the launch checks the held _state_.
 - Timers count `dt` (game time), so a tab switch froze the square **and** the windows.
 
 ---
 
 ## Ideas that kept coming back
 
-| Idea | Where it showed up |
-|---|---|
-| **One source of truth** | `moving` flag (02) · stored obstacle form (08) · `isGrounded` returned twice (09) |
-| **Remembered vs. recomputed** | input vs. velocity (05) · `isGrounded`, timers (09–10) |
-| **Units guide the formula** | px/s × s (04) · px/s² × s (05) · `g = 2h / t²` (09) |
-| **Derive, don't guess** | `restThreshold` (06) · gravity & jump speed (09) · tunneling limit (09) |
-| **Trace numbers** | ping-pong wrap (02) · 4.35 s frame (04) · 6-hop log (09) · 29.6 px tap (10) |
-| **Mirrored code hides bugs** | wraps (02) · `max` vs `min` (05) · X/Y loops (08) |
-| **Order matters** | cap before move (05) · X then Y, corner bias (07) · grounded from last frame (09) |
-| **State vs. event** | held vs. just pressed (09) · release before launch (10) |
-| **Invisible ≠ correct** | 240Hz hid frame-rate bugs (04) · micro-bounces (06) · falling while "standing" (09) |
-| **Test the weird cases on purpose** | tab switch (04) · seam & corridor (08) · buffered tap (10) |
+| Idea                                | Where it showed up                                                                  |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| **One source of truth**             | `moving` flag (02) · stored obstacle form (08) · `isGrounded` returned twice (09)   |
+| **Remembered vs. recomputed**       | input vs. velocity (05) · `isGrounded`, timers (09–10)                              |
+| **Units guide the formula**         | px/s × s (04) · px/s² × s (05) · `g = 2h / t²` (09)                                 |
+| **Derive, don't guess**             | `restThreshold` (06) · gravity & jump speed (09) · tunneling limit (09)             |
+| **Trace numbers**                   | ping-pong wrap (02) · 4.35 s frame (04) · 6-hop log (09) · 29.6 px tap (10)         |
+| **Mirrored code hides bugs**        | wraps (02) · `max` vs `min` (05) · X/Y loops (08)                                   |
+| **Order matters**                   | cap before move (05) · X then Y, corner bias (07) · grounded from last frame (09)   |
+| **State vs. event**                 | held vs. just pressed (09) · release before launch (10)                             |
+| **Invisible ≠ correct**             | 240Hz hid frame-rate bugs (04) · micro-bounces (06) · falling while "standing" (09) |
+| **Test the weird cases on purpose** | tab switch (04) · seam & corridor (08) · buffered tap (10)                          |
 
 ---
 
 ## Tuning cheat sheet (as of 10)
 
-| Value | Number | Unit | Notes |
-|---|---|---|---|
-| `jumpHeight` | 100 | px | feel value |
-| `timeToApex` | 0.4 | s | feel value |
-| `gravity` | 1250 | px/s² | derived: `2h / t²` |
-| `jumpSpeed` | 500 | px/s | derived: `g × t` |
-| `terminalVelocity` | 600 | px/s | max fall speed |
-| `topSpeed` | 150 | px/s | horizontal only |
-| `groundAcceleration` / `airAcceleration` | 400 / 260 | px/s² | |
-| `groundFriction` / `airFriction` | 300 / 60 | px/s² | |
-| `bouncinessX` / `bouncinessY` | 0.6 / 0 | — | springy walls, solid floors |
-| `coyoteTime` / `jumpBufferTime` | 0.1 / 0.1 | s | game time |
-| `jumpCutMultiplier` | 0.5 | — | tap ≈ 25–30 px |
-| `MAX_DT` | 1/30 | s | frame cap + tunneling guard |
+| Value                                    | Number    | Unit  | Notes                       |
+| ---------------------------------------- | --------- | ----- | --------------------------- |
+| `jumpHeight`                             | 100       | px    | feel value                  |
+| `timeToApex`                             | 0.4       | s     | feel value                  |
+| `gravity`                                | 1250      | px/s² | derived: `2h / t²`          |
+| `jumpSpeed`                              | 500       | px/s  | derived: `g × t`            |
+| `terminalVelocity`                       | 600       | px/s  | max fall speed              |
+| `topSpeed`                               | 150       | px/s  | horizontal only             |
+| `groundAcceleration` / `airAcceleration` | 400 / 260 | px/s² |                             |
+| `groundFriction` / `airFriction`         | 300 / 60  | px/s² |                             |
+| `bouncinessX` / `bouncinessY`            | 0.6 / 0   | —     | springy walls, solid floors |
+| `coyoteTime` / `jumpBufferTime`          | 0.1 / 0.1 | s     | game time                   |
+| `jumpCutMultiplier`                      | 0.5       | —     | tap ≈ 25–30 px              |
+| `MAX_DT`                                 | 1/30      | s     | frame cap + tunneling guard |
 
 ---
 
