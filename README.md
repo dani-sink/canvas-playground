@@ -16,7 +16,44 @@ canvas-playground/
     └── 10-feel/
 ```
 
-**Run it:** serve the folder locally (`npx serve .`, `python3 -m http.server`, or VS Code Live Server). ES modules don't load over `file://`.
+---
+
+## Play it
+
+### In the browser
+
+Every dare is playable online through GitHub Pages. Click a dare, click the canvas once if the keys don't respond, and play:
+
+| Dare       | Play                                                                      | Controls                                       |
+| ---------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
+| 01 glide   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/01-glide/)   | none, just watch                               |
+| 02 wheel   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/02-wheel/)   | ← ↑ → ↓ move                                   |
+| 03 fair    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/03-fair/)    | ← ↑ → ↓ move (fair diagonals)                  |
+| 04 steady  | [▶ play](https://dani-sink.github.io/canvas-playground/dares/04-steady/)  | ← ↑ → ↓ move (same speed on any screen)        |
+| 05 weight  | [▶ play](https://dani-sink.github.io/canvas-playground/dares/05-weight/)  | ← ↑ → ↓ push, release to slide                 |
+| 06 walls   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/06-walls/)   | ← ↑ → ↓ push, bounce off walls                 |
+| 07 block   | [▶ play](https://dani-sink.github.io/canvas-playground/dares/07-block/)   | ← ↑ → ↓ push, bump the box                     |
+| 08 room    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/08-room/)    | ← ↑ → ↓ push around the room                   |
+| 09 gravity | [▶ play](https://dani-sink.github.io/canvas-playground/dares/09-gravity/) | ← → run · ↑ jump                               |
+| 10 feel    | [▶ play](https://dani-sink.github.io/canvas-playground/dares/10-feel/)    | ← → run · ↑ jump (tap = hop, hold = full jump) |
+
+Things to try in **10 feel**: run off the Platform and jump a split second late (coyote time), press jump just before landing (jump buffer), and compare a tap with a hold (variable jump height).
+
+### Locally
+
+1. Clone the repo:
+   ```
+   git clone https://github.com/dani-sink/canvas-playground.git
+   cd canvas-playground
+   ```
+2. Serve the folder with any static server. ES modules don't load over `file://`, so double-clicking `index.html` won't work:
+   ```
+   npx serve .
+   # or
+   python3 -m http.server
+   ```
+   (VS Code's Live Server extension works too.)
+3. Open a dare in the browser, e.g. `http://localhost:3000/dares/10-feel/` (or port `8000` with Python).
 
 ---
 
